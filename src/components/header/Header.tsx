@@ -1,7 +1,7 @@
 import React from 'react';
 import LogoBlock from '@/components/header/LogoBlock';
 import SearchBlock from '@/components/header/SearchBlock';
-import HeaderUserBlock from '@/components/header/HeaderUserBlock';
+import UserBlock from '@/components/header/UserBlock';
 
 function Header() {
   return (
@@ -16,7 +16,7 @@ function Header() {
         <LogoBlock />
         <SearchBlock />
         <nav aria-label="Основное меню">
-          <HeaderUserBlock />
+          <UserBlock />
         </nav>
       </div>
     </header>
