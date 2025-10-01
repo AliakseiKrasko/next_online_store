@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* --background: #ffffff;
@@ -7,6 +7,8 @@
 
 @theme inline {
   --font-sans: var(--font-rubik);
+
+  --shadow-default: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +19,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  background-color: #fbf8ec;
+  /*color: var(--foreground);*/
+  font-family: var(--font-sans), sans-serif;
 }

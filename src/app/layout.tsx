@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/header/Header";
-import Footer from "@/components/footer/Footer";
+import type { Metadata } from 'next';
+import { Rubik } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 
 const rubik = Rubik({
-  variable: "--font-rubik",
-  subsets: ["latin", "cyrillic"],
+  variable: '--font-rubik',
+  subsets: ['latin', 'cyrillic'],
 });
 
 export const metadata: Metadata = {
-  title: "Интернет-магазин",
-  description: "Доставка и покупка",
+  title: 'Интернет-магазин',
+  description: 'Доставка и покупка',
 };
 
 export default function RootLayout({
@@ -21,12 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${rubik.variable} antialiased`}
-      >
-      <Header />
+      <body className={`${rubik.variable} antialiased`}>
+        <Header />
         {children}
-      <Footer />
+        <Footer />
       </body>
     </html>
   );
