@@ -1,11 +1,16 @@
-import type { ProductCard } from '@/types/products';
+import type { ProductCardProps } from '@/types/products';
 import Image from 'next/image';
-import iconHeart from '/public/icons-header/icon-heart.svg';
 import { formatPrice } from '@/utils/formatPrice';
 
 const cardDiscountPercent = 6;
 
-const ProductCard = ({ img, description, basePrice, discountPercent, rating }: ProductCard) => {
+const ProductCard = ({
+  img,
+  description,
+  basePrice,
+  discountPercent,
+  rating,
+}: ProductCardProps) => {
   const calculateFinalPrice = (price: number, discount: number): number => {
     return discount > 0 ? price * (1 - discount / 100) : price;
   };
@@ -15,15 +20,14 @@ const ProductCard = ({ img, description, basePrice, discountPercent, rating }: P
   };
 
   const finalPrice = calculateFinalPrice(basePrice, discountPercent);
-
   const priceByCard = calculatePriceByCard(finalPrice, cardDiscountPercent);
 
   return (
     <div
       className="flex flex-col justify-between w-40 rounded overflow-hidden bg-white md:w-[224px]
-        xl:w-[272px] align-top p-0 hover:shadow-(--shadow-article) duration-300"
+        xl:w-[272px] align-top p-0 hover:shadow-lg duration-300"
     >
-      <div className="relative w-40 h-40 md:w-[224px] xl:w-[272px]">
+      <div className="relative w-40 h-40 md:w-[224px] md:h-[224px] xl:w-[272px] xl:h-[272px]">
         <Image
           src={img}
           alt="Акция"
@@ -32,10 +36,11 @@ const ProductCard = ({ img, description, basePrice, discountPercent, rating }: P
           sizes="(max-width: 768px) 160px, (max-width: 1200px) 224px, 272px"
         />
         <button
-          className="w-8 h-8 p-2 bg-[#f3f2f1] hover:bg-[#fcd5ba] absolute top-2 right-2 opacity-50
-            rounded cursor-pointer duration-300"
+          className="w-8 h-8 flex items-center justify-center bg-[#f3f2f1] hover:bg-[#fcd5ba]
+            absolute top-2 right-2 opacity-50 rounded cursor-pointer duration-300"
+          aria-label="В избранное"
         >
-          <Image src={iconHeart} alt="В избранное" width={24} height={24} sizes="24px" />
+          <Image src="/icon-header/icon-heart.svg" alt="" width={16} height={16} />
         </button>
         {discountPercent > 0 && (
           <div className="absolute bg-[#ff6633] py-1 px-2 rounded text-white bottom-2.5 left-2.5">
@@ -71,12 +76,11 @@ const ProductCard = ({ img, description, basePrice, discountPercent, rating }: P
         >
           {description}
         </div>
-        {rating > 0 && <p>Рейтинг {rating}</p>}
+        {rating > 0 && <p className="text-sm">Рейтинг {rating}</p>}
         <button
-          className="border border-(--color-primary) hover:text-white hover:bg-[#ff6633]
-            hover:border-transparent active:shadow-(--shadow-button-active) w-full h-10 rounded p-2
-            justify-center items-center text-(--color-primary) transition-all duration-300
-            cursor-pointer select-none"
+          className="border border-[#ff6633] hover:text-white hover:bg-[#ff6633]
+            hover:border-transparent active:shadow-inner w-full h-10 rounded p-2 justify-center
+            items-center text-[#ff6633] transition-all duration-300 cursor-pointer select-none"
         >
           В корзину
         </button>

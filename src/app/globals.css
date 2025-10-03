@@ -25,3 +25,10 @@ body {
     /*color: var(--foreground);*/
     font-family: var(--font-sans), sans-serif;
 }
+
+
+.absolute.bg-\[\#ff6633\]::before,
+.absolute.bg-\[\#ff6633\]::after {
+    content: none !important;
+    display: none !important;
+}
