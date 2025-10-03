@@ -29,7 +29,7 @@
       "description": "Колбаса сырокопченая премиум класса",
       "basePrice": 350.0,
       "discountPercent": 25,
-      "rating": 4.8,
+      "rating": 2.8,
       "categories": ["actions", "meat"],
       "weight": "500 г"
     },

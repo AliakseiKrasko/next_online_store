@@ -1,6 +1,7 @@
 import type { ProductCardProps } from '@/types/products';
 import Image from 'next/image';
 import { formatPrice } from '@/utils/formatPrice';
+import StarRating from '@/components/products/starrating/StarRating';
 
 const cardDiscountPercent = 6;
 
@@ -76,7 +77,7 @@ const ProductCard = ({
         >
           {description}
         </div>
-        {rating > 0 && <p className="text-sm">Рейтинг {rating}</p>}
+        {rating > 0 && <StarRating rating={rating} />}
         <button
           className="border border-[#ff6633] hover:text-white hover:bg-[#ff6633]
             hover:border-transparent active:shadow-inner w-full h-10 rounded p-2 justify-center
